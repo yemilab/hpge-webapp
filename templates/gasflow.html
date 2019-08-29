@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="content has-text-centered">
+  <h2>HPGe array gas flow</h2>
+  <p>Reloaded at: <span id="datetime"></span></p>
+  <figure>
+    <p>
+      <img src="{{ url_for('downloader', category='gasflow', filename='gasflow.jpg') }}" alt="gasflow" id="gasflow">
+    </p>
+  </figure>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (function() {
+        var imageElem = document.getElementById('gasflow');
+        var dateElem = document.getElementById('datetime');
+        dateElem.innerHTML = new Date();
+        setInterval(function() {
+        t = new Date();
+        imageElem.src = '{{ url_for("downloader", category="gasflow", filename="gasflow.jpg") }}?t=' + t.getTime();
+        dateElem.innerHTML = t;
+        }, 30000);
+    })();
+</script>
+{% endblock %}
