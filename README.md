@@ -1,8 +1,4 @@
-# COSINE Run Catalog
-
-## Flask
-
-http://flask.pocoo.org/
+# HPGe web app
 
 ## Requirements
 
@@ -11,12 +7,6 @@ $ pip install -r requirements.txt
 ```
 
 ## Developments
-
-Initialize database
-
-```
-$ sqlite3 cosine.db < schema.sql
-```
 
 Test run
 
@@ -37,9 +27,9 @@ Gunicorn example
 ```
 #!/bin/bash
 PREFIX=/opt/hpgeapp
-export COSINEWEBAPP_SETTINGS=$PREFIX/cosine.cfg
+export HPGEWEBAPP_SETTINGS=$PREFIX/hpgeapp.cfg
 cd $PREFIX
-$PREFIX/miniconda3/bin/gunicorn COSINEApp:app
+$PREFIX/python3/bin/gunicorn hpgeapp:app
 ```
 
 Settings example,
@@ -52,9 +42,10 @@ Apache settings,
 
 ```
     <Location "/webapp">
+        ProxyPreserveHost On
         ProxyPass http://localhost:8000/
         ProxyPassReverse http://localhost:8000/
         #RequestHeader set X-Forwarded-Proto "https"
-        RequestHeader set X-SCRIPT-NAME /webapp
+        RequestHeader set X-SCRIPT-NAME /app
     </Location>
 ```
