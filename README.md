@@ -3,6 +3,11 @@
 ## Requirements
 
 ```
+$ python3 -m venv python3
+$ source python3/bin/activate
+```
+
+```
 $ pip install -r requirements.txt
 ```
 

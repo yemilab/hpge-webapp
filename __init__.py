@@ -7,7 +7,7 @@ app.config.update(dict(
     SECRET_KEY='development key',
 ))
 try:
-    app.config.from_envvar('COSINEWEBAPP_SETTINGS')
+    app.config.from_envvar('HPGEWEBAPP_SETTINGS')
 except RuntimeError:
     pass
 
