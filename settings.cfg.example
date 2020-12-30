@@ -1,0 +1,10 @@
+DEBUG = False
+TESTING = False
+SECRET_KEY = 'dev'
+UPLOAD_FOLDER = '/uploads'
+RUNLIST_DATABASE = '/db/runlist.db',
+DAQ_DATABASE = '/db/daq.db',
+MAX_CONTENT_PATH = 104857600
+REDIS_HOST = 'redis'
+REDIS_PORT = 6379
+REDIS_DB = 0

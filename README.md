@@ -27,30 +27,40 @@ $ python -m flask run
 
 ## Deployments
 
-Gunicorn example
-
 ```
-#!/bin/bash
-PREFIX=/opt/hpgeapp
-export HPGEWEBAPP_SETTINGS=$PREFIX/hpgeapp.cfg
-cd $PREFIX
-$PREFIX/python3/bin/gunicorn hpgeapp:app
+docker-compose up
 ```
 
-Settings example,
+```
+docker-compose up -d
+```
 
 ```
-SECRET_KEY = 'somekey'
+docker-compose start
+```
+
+```
+docker-compose stop
+```
+
+```
+docker-compose down
 ```
 
 Apache settings,
 
+
 ```
-    <Location "/webapp">
+        ProxyPass / http://localhost:8000/
+        ProxyPassReverse /  http://localhost:8000/
+        RequestHeader set X-Forwarded-For "https://neon.cup.re.kr"
+```
+
+```
+    <Location "/app">
         ProxyPreserveHost On
         ProxyPass http://localhost:8000/
         ProxyPassReverse http://localhost:8000/
-        #RequestHeader set X-Forwarded-Proto "https"
         RequestHeader set X-SCRIPT-NAME /app
     </Location>
 ```
