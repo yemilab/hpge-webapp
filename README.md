@@ -51,16 +51,7 @@ Apache settings,
 
 
 ```
-        ProxyPass / http://localhost:8000/
-        ProxyPassReverse /  http://localhost:8000/
-        RequestHeader set X-Forwarded-For "https://neon.cup.re.kr"
-```
-
-```
-    <Location "/app">
-        ProxyPreserveHost On
-        ProxyPass http://localhost:8000/
-        ProxyPassReverse http://localhost:8000/
-        RequestHeader set X-SCRIPT-NAME /app
-    </Location>
+ProxyPass / http://localhost:8000/
+ProxyPassReverse /  http://localhost:8000/
+RequestHeader set X-Forwarded-For "https://neon.cup.re.kr"
 ```
