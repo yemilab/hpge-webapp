@@ -8,6 +8,3 @@ services:
       - WEBAPP_SETTINGS=/code/settings.cfg
     volumes:
       - ./uploads:/uploads
-      - ./db:/db
-  redis:
-    image: "redis:alpine"

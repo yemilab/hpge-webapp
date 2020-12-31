@@ -4,11 +4,13 @@ from flask import Flask
 
 app = Flask(__name__)
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 app.config.update(
     DEBUG = True,
     TESTING = True,
     SECRET_KEY = 'development',
-    UPLOAD_FOLDER = './uploads',
+    UPLOAD_FOLDER = os.path.join(basedir, '..', 'uploads'),
     MAX_CONTENT_PATH = 10485760, # 10MB
 )
 
@@ -19,4 +21,4 @@ try:
 except RuntimeError:
     pass
 
-from app import views, models
+from app import views

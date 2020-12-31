@@ -16,7 +16,7 @@ $ pip install -r requirements.txt
 Test run
 
 ```
-$ FLASK_APP=hpge.py FLASK_DEBUG=1 flask run
+$ FLASK_APP=app FLASK_DEBUG=1 flask run
 ```
 
 ```
